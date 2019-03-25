@@ -17,8 +17,8 @@ load("candidates.rda")
 load("committees.rda")
 load("contributions.rda")
 glimpse(contributions)
-devtools::install_github("benmarwick/wordcountaddin")
 install.packages("devtools")
+devtools::install_github("benmarwick/wordcountaddin")
 install.packages("fs")
 ```
 
