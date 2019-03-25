@@ -74,5 +74,4 @@ house_elections %>%
   scale_color_manual("Win?", values = c("goldenrod1", "dodgerblue1"))
 ```
 
-
 > Word count: `r wordcountaddin::word_count()`
