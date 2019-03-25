@@ -17,6 +17,9 @@ load("candidates.rda")
 load("committees.rda")
 load("contributions.rda")
 glimpse(contributions)
+devtools::install_github("benmarwick/wordcountaddin")
+install.packages("devtools")
+install.packages("fs")
 ```
 
 Contributions are the most common form of campaign support. A contribution is anything of value given, loaned, or advanced to influence a federal election. The data utilized in our project originated from the individual contribution or contributions set based on the 2011-2012 election cycles. The information given represented contributions from an individual to a federal committee/candidate. 
