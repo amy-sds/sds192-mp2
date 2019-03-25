@@ -58,6 +58,8 @@ Our data revealed Barack Obama as the person with the highest transaction amount
 
 #Second Part of Project
 
+In the second part of our project, we chose to focus on primary and general votes. The two elections form a two-step process and are used to determine the winner. The first of these is the primary election, which serves as a party nomination for the political office. Each political party is allowed only one candidate in the presidential election. Therefore, the primary election is the means to determine the party’s one official presidential candidate. After the primary elections, a general election will be held. This is the main election which is held between the winners of the various primaries. It will typically result in a much higher voter turnout than the primary elections. 
+
 ```{r}
 contributions %>%
   group_by(entity_type) %>%
