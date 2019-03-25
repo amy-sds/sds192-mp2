@@ -31,6 +31,7 @@ committees_transaction_amt <- full_join(candidates, contributions, by = "cand_id
   summarize(total_trans_amt = sum(transaction_amt)) %>%
   arrange(desc(total_trans_amt))
 head(committees_transaction_amt, 20)
+transaction_20 <- head(committees_transaction_amt, 20)
 ```
 
 Note that this appears to be cumulative!
