@@ -24,10 +24,13 @@ Contributions are the most common form of campaign support. A contribution is an
 As seen in the past, a candidate is received much more favorably by the public if he/she has enough resources - funds - to strengthen his/her advertisements and overall campaign strategy. Equipped with the proper budget to finance certain propaganda, it is nearly inevitable that the candidate with the highest amount of contributions will have the most ‘pull’ with the public and ultimately, are more likely to be elected.  
 
 ```{r}
-candidates %>%
-  group_by(cand_election_yr, cand_office, cand_office_state) %>%
-  summarize(num_candidates = n()) %>%
-  print(n = Inf)
+committees_transaction_amt <- full_join(candidates, contributions, by = "cand_id") %>%
+  select(cmte_id, transaction_amt, cand_name, cand_election_yr, cand_party_affiliation) %>% 
+  filter(transaction_amt > 0) %>%
+  group_by(cand_name, cand_election_yr, cand_party_affiliation) %>%
+  summarize(total_trans_amt = sum(transaction_amt)) %>%
+  arrange(desc(total_trans_amt))
+head(committees_transaction_amt, 20)
 ```
 
 Note that this appears to be cumulative!
