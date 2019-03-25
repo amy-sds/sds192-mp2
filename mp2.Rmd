@@ -21,7 +21,10 @@ glimpse(contributions)
 
 ## Some basic EDA
 
-- How many candidates running for what offices?
+Contributions are the most common form of campaign support. A contribution is anything of value given, loaned, or advanced to influence a federal election. The data utilized in our project originated from the individual contribution or contributions set based on the 2011-2012 election cycles. The information given represented contributions from an individual to a federal committee/candidate. 
+
+
+As seen in the past, a candidate is received much more favorably by the public if he/she has enough resources - funds - to strengthen his/her advertisements and overall campaign strategy. Equipped with the proper budget to finance certain propaganda, it is nearly inevitable that the candidate with the highest amount of contributions will have the most ‘pull’ with the public and ultimately, are more likely to be elected.  
 
 ```{r}
 candidates %>%
