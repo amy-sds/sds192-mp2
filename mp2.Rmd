@@ -54,7 +54,7 @@ graph_1 <-
 show(graph_1)
 ```
 
-- What types of contributions are there and where do they go?
+Our data revealed Barack Obama as the person with the highest transaction amount for the 2012 election year. Such a result fully supports the information presented beforehand  that candidates are more likely to win as their contributions grow. 8 Republican and 7 Democratic candidates are easily depicted in their signature blue and red party colors. 
 
 ```{r}
 contributions %>%
