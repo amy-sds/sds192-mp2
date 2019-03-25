@@ -74,4 +74,8 @@ house_elections %>%
   scale_color_manual("Win?", values = c("goldenrod1", "dodgerblue1"))
 ```
 
+This part of the data represents the relationship between primary and general votes for Republicans and Democrats. Some candidates are shown to have zero primary or general votes for certain reasons; for example, a candidate with zero primary votes might be the only candidate for that party. Our data have been set to only include votes larger than zero. 
+
+The second graph - a scatterplot -  reveals that the relationship between general and primary votes is directly proportional with a strong correlation between the two and, as the number of votes increase, they disperse further. The winning candidates are color-coded as blue and the losing candidates as yellow, respectively. While there is a clear correlation between the number of votes a candidate receives, it appears to be weaker among the Democratic Party, which is an interesting observation we took note of.
+
 > Word count: `r wordcountaddin::word_count()`
