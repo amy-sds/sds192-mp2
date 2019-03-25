@@ -61,13 +61,17 @@ Our data revealed Barack Obama as the person with the highest transaction amount
 In the second part of our project, we chose to focus on primary and general votes. The two elections form a two-step process and are used to determine the winner. The first of these is the primary election, which serves as a party nomination for the political office. Each political party is allowed only one candidate in the presidential election. Therefore, the primary election is the means to determine the party’s one official presidential candidate. After the primary elections, a general election will be held. This is the main election which is held between the winners of the various primaries. It will typically result in a much higher voter turnout than the primary elections. 
 
 ```{r}
-contributions %>%
-  group_by(entity_type) %>%
-  summarize(num_contributions = n(), 
-            total_amount = sum(transaction_amt), 
-            other_ids = sum(other_id > ""),
-            cand_ids = sum(cand_id > "")) %>%
-  arrange(desc(num_contributions))
+house_elections %>%
+  filter(general_votes > 0, primary_votes > 0, party == "R" | party == "D") %>%
+  select(party, primary_votes, general_votes, ge_winner) %>%
+  filter(!is.na("ge_winner")) %>%
+  ggplot(aes(x = primary_votes, y = general_votes)) +
+  facet_wrap(~party) + geom_point(stat = "identity", aes(color = factor(ge_winner))) + geom_smooth() + 
+  scale_y_continuous(labels = scales::comma) +
+  labs(x = "Primary Votes", y = "General Votes", 
+       title = "Relationship between Primary Votes and General Votes", 
+       subtitle = "House Elections in the U.S.") + 
+  scale_color_manual("Win?", values = c("goldenrod1", "dodgerblue1"))
 ```
 
 
