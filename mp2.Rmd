@@ -37,11 +37,21 @@ transaction_20 <- head(committees_transaction_amt, 20)
 To prove this, our first set of data presented - via a bar chart - is meant to represent the 20 candidates who have received the most in terms of contributions. Because candidates’ transaction amounts differ in various parts of the year, we chose to take a sum of the amounts for each candidate in order to compare, overall, which candidate had the largest contributions. 
 
 ```{r}
-committees %>%
-  group_by(cmte_type) %>%
-  summarize(num_committees = n(), 
-            cand_ids = sum(cand_id > "")) %>%
-  arrange(desc(num_committees))
+transaction_15$cand_party_affiliation <- as.factor(transaction_15$cand_party_affiliation)
+graph_1 <-
+  ggplot(transaction_15,
+         aes(x = reorder(cand_name, total_trans_amt), 
+             y = total_trans_amt)) + 
+  geom_bar(stat = "identity", aes(fill = factor(cand_party_affiliation))) +
+  geom_text(aes(label = total_trans_amt, hjust = -.1)) + 
+  coord_flip() + 
+  expand_limits(y = 500000000) + 
+  scale_y_continuous(labels = scales::comma) +
+  scale_fill_manual("Party Affiliation", values = c("red","blue")) +
+  labs(x = NULL, y = NULL, 
+       title = "Top 15 Transaction Amounts in 2012", 
+       subtitle = "Highest Transaction Amounts of Candidates in 2012")
+show(graph_1)
 ```
 
 - What types of contributions are there and where do they go?
