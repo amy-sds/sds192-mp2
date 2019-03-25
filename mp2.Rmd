@@ -34,9 +34,7 @@ head(committees_transaction_amt, 20)
 transaction_20 <- head(committees_transaction_amt, 20)
 ```
 
-Note that this appears to be cumulative!
-
-- How many committees [by type](https://classic.fec.gov/finance/disclosure/metadata/CommitteeTypeCodes.shtml)?
+To prove this, our first set of data presented - via a bar chart - is meant to represent the 20 candidates who have received the most in terms of contributions. Because candidates’ transaction amounts differ in various parts of the year, we chose to take a sum of the amounts for each candidate in order to compare, overall, which candidate had the largest contributions. 
 
 ```{r}
 committees %>%
